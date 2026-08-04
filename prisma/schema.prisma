@@ -1,0 +1,272 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma/client"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  passwordHash  String
+  name          String
+  role          String    @default("CLIENT") // ADMIN, ADVISOR, STAFF, CLIENT
+  phone         String?
+  avatarUrl     String?
+  
+  // Security Additions
+  isActive      Boolean   @default(true)
+  mfaEnabled    Boolean   @default(false)
+  mfaSecret     String?
+  lastLoginAt   DateTime?
+
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  clientProfile ClientProfile?
+  managedLeads  Lead[]         @relation("AdvisorToLead")
+  tasks         Task[]         @relation("UserTasks")
+  appointments  Appointment[]  @relation("AdvisorAppointments")
+  auditLogs     AuditLog[]
+}
+
+model ClientProfile {
+  id             String    @id @default(cuid())
+  firstName      String
+  lastName       String
+  email          String    @unique
+  phone          String?
+  pan            String?   @unique
+  aadhaar        String?   @unique
+  dob            DateTime?
+  occupation     String?
+  riskProfile    String?   // "Conservative", "Moderate", "Aggressive"
+  
+  // Relations
+  familyMembers  FamilyMember[]
+  documents      Document[]
+  appointments   Appointment[] @relation("ClientAppointments")
+  notes          Note[]
+  portfolios     Portfolio[]
+  taxReturns     TaxReturn[]
+  activities     ClientActivity[]
+  payments       Payment[]
+
+  // Authentication Relation
+  userId         String?   @unique
+  user           User?     @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  // Soft Delete
+  isDeleted      Boolean   @default(false)
+  deletedAt      DateTime?
+
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+}
+
+model FamilyMember {
+  id              String        @id @default(cuid())
+  clientId        String
+  client          ClientProfile @relation(fields: [clientId], references: [id], onDelete: Cascade)
+  name            String
+  relation        String
+  dob             DateTime?
+}
+
+model Lead {
+  id            String      @id @default(cuid())
+  name          String
+  email         String?
+  phone         String
+  status        String      @default("NEW") // NEW, CONTACTED, MEETING_SCHEDULED, PROPOSAL_SENT, CONVERTED, LOST
+  priority      String      @default("MEDIUM") // LOW, MEDIUM, HIGH, URGENT
+  source        String?
+  value         String?
+  notes         Note[]
+  
+  assignedToId  String?
+  assignedTo    User?       @relation("AdvisorToLead", fields: [assignedToId], references: [id])
+  
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+}
+
+model Task {
+  id            String      @id @default(cuid())
+  title         String
+  description   String?
+  priority      String      @default("MEDIUM") // LOW, MEDIUM, HIGH, URGENT
+  status        String      @default("PENDING") // PENDING, IN_PROGRESS, COMPLETED, CANCELLED
+  dueDate       DateTime?
+  isRecurring   Boolean     @default(false)
+  recurringRule String?     // e.g., "DAILY", "WEEKLY"
+  
+  assignedToId  String
+  assignedTo    User        @relation("UserTasks", fields: [assignedToId], references: [id], onDelete: Cascade)
+  
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+}
+
+model Appointment {
+  id            String         @id @default(cuid())
+  title         String
+  startTime     DateTime
+  endTime       DateTime
+  notes         String?
+  status        String         @default("SCHEDULED") // SCHEDULED, COMPLETED, CANCELLED
+  
+  advisorId     String
+  advisor       User           @relation("AdvisorAppointments", fields: [advisorId], references: [id], onDelete: Cascade)
+  
+  clientId      String?
+  client        ClientProfile? @relation("ClientAppointments", fields: [clientId], references: [id], onDelete: SetNull)
+  
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+}
+
+model Document {
+  id            String         @id @default(cuid())
+  title         String
+  fileUrl       String
+  storagePath   String
+  folder        String         @default("general")
+  version       Int            @default(1)
+  
+  clientId      String
+  client        ClientProfile  @relation(fields: [clientId], references: [id], onDelete: Cascade)
+  
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+}
+
+model Note {
+  id            String         @id @default(cuid())
+  content       String
+  
+  leadId        String?
+  lead          Lead?          @relation(fields: [leadId], references: [id], onDelete: Cascade)
+  
+  clientId      String?
+  client        ClientProfile? @relation(fields: [clientId], references: [id], onDelete: Cascade)
+  
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+}
+
+model AuditLog {
+  id            String    @id @default(cuid())
+  action        String
+  resource      String
+  resourceId    String?
+  details       String?
+  
+  userId        String?
+  user          User?     @relation(fields: [userId], references: [id], onDelete: SetNull)
+  
+  createdAt     DateTime  @default(now())
+}
+
+model Portfolio {
+  id             String         @id @default(cuid())
+  
+  clientId       String
+  client         ClientProfile  @relation(fields: [clientId], references: [id], onDelete: Cascade)
+  
+  healthScore    Int            @default(85)
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+  
+  transactions   Transaction[]
+  goalMappings   GoalMapping[]
+}
+
+model MutualFundScheme {
+  id             String         @id @default(cuid())
+  amc            String
+  schemeName     String
+  category       String         // e.g., "Equity - Large Cap"
+  currentNav     Float
+  navDate        DateTime
+  
+  transactions   Transaction[]
+}
+
+model Transaction {
+  id             String           @id @default(cuid())
+  folioNumber    String
+  type           String           // SIP, LUMPSUM, SWP, STP, DIVIDEND
+  units          Float
+  nav            Float
+  investedAmount Float
+  purchaseDate   DateTime
+  
+  portfolioId    String
+  portfolio      Portfolio        @relation(fields: [portfolioId], references: [id], onDelete: Cascade)
+  
+  schemeId       String
+  scheme         MutualFundScheme @relation(fields: [schemeId], references: [id])
+  
+  createdAt      DateTime         @default(now())
+}
+
+model GoalMapping {
+  id             String         @id @default(cuid())
+  goalName       String         // e.g., "Retirement", "Child Education"
+  targetAmount   Float
+  targetYear     Int
+  
+  portfolioId    String
+  portfolio      Portfolio      @relation(fields: [portfolioId], references: [id], onDelete: Cascade)
+}
+
+model TaxReturn {
+  id             String            @id @default(cuid())
+  assessmentYear String            // e.g., "2026-27"
+  itrType        String            // e.g., "ITR-1", "ITR-2"
+  status         String            @default("UPLOADS") // UPLOADS, VERIFICATION, MISSING_DOCS, FILING, CONFIRMATION, ARCHIVED
+  ackNumber      String?
+  refundStatus   String?           // e.g., "Pending", "Processed"
+  
+  clientId       String
+  client         ClientProfile     @relation(fields: [clientId], references: [id], onDelete: Cascade)
+  
+  payment        Payment?
+  
+  createdAt      DateTime          @default(now())
+  updatedAt      DateTime          @updatedAt
+}
+
+model ClientActivity {
+  id          String         @id @default(cuid())
+  clientId    String
+  client      ClientProfile  @relation(fields: [clientId], references: [id], onDelete: Cascade)
+  type        String         
+  description String
+  metadata    String?        
+  createdAt   DateTime       @default(now())
+}
+
+model Payment {
+  id              String         @id @default(cuid())
+  amount          Float
+  currency        String         @default("INR")
+  status          String         @default("CREATED") // CREATED, SUCCESS, FAILED
+  razorpayOrderId String         @unique
+  razorpayPaymentId String?      @unique
+  razorpaySignature String?
+
+  clientId        String
+  client          ClientProfile  @relation(fields: [clientId], references: [id], onDelete: Cascade)
+
+  // Optional link to a specific Tax Return being paid for
+  taxReturnId     String?        @unique
+  taxReturn       TaxReturn?     @relation(fields: [taxReturnId], references: [id], onDelete: SetNull)
+
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
+}

@@ -1,0 +1,14 @@
+{
+  "Index": {
+    "title": "Welcome to Shree Sai Services",
+    "description": "Expert Tax & Financial Services",
+    "getStarted": "Get Started"
+  },
+  "Navigation": {
+    "home": "Home",
+    "services": "Services",
+    "about": "About Us",
+    "contact": "Contact",
+    "portal": "Client Portal"
+  }
+}
