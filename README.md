@@ -1,115 +1,110 @@
-# Shree Sai Services - Financial Advisory Platform
+<div align="center">
+  <img src="public/icon-192x192.png" alt="Shree Sai Services Logo" width="120" />
 
-A premium, full-stack Next.js 15 application built for modern financial advisory firms. This project seamlessly combines a high-conversion marketing website, a powerful internal CRM for advisors, and a secure, personalized client portal into one unified codebase.
+  # 🌟 Shree Sai Services | Enterprise CRM & Client Portal
+  
+  **A Next-Generation, Zero-Cost Financial Advisory Platform built for Scale.**
+  
+  [![Next.js](https://img.shields.io/badge/Next.js-14-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
+  [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+  [![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)](https://supabase.com/)
+  [![Prisma](https://img.shields.io/badge/Prisma-3982CE?style=for-the-badge&logo=Prisma&logoColor=white)](https://prisma.io/)
+  
+  <br />
+</div>
 
-![Dashboard Preview](/public/hero-bg.jpg) 
-> *(Replace the above image link with an actual screenshot of your dashboard once deployed)*
+## 🚀 Overview
 
-## ✨ Features
+**Shree Sai Services** is not just a marketing website—it is a full-scale Enterprise CRM and Client Portal tailored specifically for Indian financial advisors. It automates tax return tracking, handles mutual fund portfolios, secures client document uploads, and processes payments seamlessly.
 
-### 1. Public Marketing Site
-- **Premium Aesthetics:** Glassmorphism, smooth animations (Framer Motion), and a bespoke dark/light mode toggle.
-- **Conversion Optimized:** Includes beautifully designed service pages (Mutual Funds, Income Tax, Insurance) and a "Book Consultation" funnel.
-- **Dynamic Routing:** Next.js App Router powers fast, SEO-friendly static marketing pages.
-
-### 2. Advisor CRM (`/dashboard`)
-- **Lead Pipeline:** Drag-and-drop Kanban board to track leads from "New" to "Converted" using `@hello-pangea/dnd`.
-- **Client Management:** Manage client portfolios, view KYC statuses, and organize documents.
-- **Tax Workflow:** A dedicated kanban board for tracking the status of client tax returns (Missing Docs -> Verification -> Filing).
-
-### 3. Secure Client Portal (`/portal`)
-- **Personalized Dashboard:** Clients log in to see their real-time portfolio value, missing documents, and upcoming appointments.
-- **Document Vault:** Secure upload/download area for sensitive tax and financial documents.
-- **Secure Messaging:** Built-in chat interface for clients to communicate directly with their dedicated advisor.
-
-## 🛠️ Tech Stack
-
-- **Framework:** [Next.js 16](https://nextjs.org/) (App Router, Server Actions, React 19)
-- **Styling:** [Tailwind CSS v4](https://tailwindcss.com/) & [Framer Motion](https://www.framer.com/motion/)
-- **UI Components:** [Shadcn UI](https://ui.shadcn.com/) + Base UI
-- **Database:** SQLite (Development) via [Prisma ORM](https://www.prisma.io/)
-- **Authentication:** Custom JWT-based authentication using `jose` & HTTP-only cookies.
-- **Icons:** [Lucide React](https://lucide.dev/)
+Engineered with a **Zero-Cost Edge Architecture**, the platform utilizes generous free-tier services (Supabase, Resend, Upstash) to guarantee **₹0/month server maintenance costs** while remaining capable of handling thousands of active clients.
 
 ---
 
-## 🚀 Quick Setup Guide
+## ✨ Feature Highlights
 
-Follow these steps to get the application running on your local machine.
+### 🏢 For the Firm (CRM Dashboard)
+- **Lead Pipeline Management**: Kanban-style drag-and-drop boards to track potential clients.
+- **Client Vault**: Securely view PAN cards, Aadhar cards, and tax documents uploaded by clients.
+- **Automated Tax Workflows**: Instantly update a client's ITR status and trigger automated email notifications.
+- **Role-Based Access Control (RBAC)**: Strict boundaries between `ADMIN`, `ADVISOR`, and `CLIENT` roles.
 
-### 1. Clone the repository
-```bash
-git clone <your-repo-url>
-cd ShreeSaiServices
-```
-
-### 2. Install dependencies
-Make sure you have Node.js 20+ installed.
-```bash
-npm install
-# or
-yarn install
-```
-
-### 3. Environment Variables
-Create a `.env` file in the root directory and add the following keys:
-```env
-# Database connection string (SQLite for local development)
-DATABASE_URL="file:./dev.db"
-
-# JWT Secret for authentication (Use a strong random string in production)
-JWT_SECRET="your-super-secret-jwt-key"
-```
-
-### 4. Setup the Database
-Push the Prisma schema to create the SQLite database tables and generate the Prisma Client.
-```bash
-npx prisma db push
-npx prisma generate
-```
-
-### 5. Seed the Database
-Populate the database with default admin accounts, mock clients, and dummy leads so you can test the application immediately.
-```bash
-npm run prisma db seed
-# (This runs the prisma/seed.ts script configured in package.json)
-```
-
-### 6. Start the Development Server
-```bash
-npm run dev
-```
-The application will now be running at [http://localhost:3000](http://localhost:3000).
+### 👥 For the Client (Self-Service Portal)
+- **Seamless Document Uploads**: Clients can snap a photo on their phone and upload their Form 16 directly to your secure cloud bucket.
+- **Instant Payments**: Integrated Razorpay checkouts allow clients to pay their advisory fees in two clicks without leaving the portal.
+- **Live Portfolio Tracking**: Clients can view their Mutual Fund investments and active tax statuses via their personalized dashboard.
+- **Mobile PWA Ready**: The portal acts as a Progressive Web App (PWA). Clients can "Install" the portal directly to their iPhone/Android home screen for a native app experience.
 
 ---
 
-## 🔐 Default Login Credentials
+## 🛠️ Technology Stack (The Zero-Cost Architecture)
 
-If you seeded the database using the step above, the following accounts are available for testing:
-
-**Admin / Advisor Access:**
-- **Email:** `admin@shreesaiservices.com`
-- **Password:** `password123`
-
-**Client Portal Access:**
-- **Email:** `vikram.k@example.com`
-- **Password:** `password123`
+| Component | Technology | Purpose |
+| :--- | :--- | :--- |
+| **Frontend** | `Next.js 16` (App Router) | High-performance React framework. |
+| **Styling** | `Tailwind CSS` & `Shadcn UI` | Beautiful, responsive, and accessible UI components. |
+| **Database** | `PostgreSQL` via `Supabase` | Highly secure, cloud-hosted relational database. |
+| **ORM** | `Prisma` | Type-safe database querying and schema migrations. |
+| **Storage** | `Supabase Storage` | Secure S3-style bucket for client tax documents. |
+| **Payments** | `Razorpay` | Indian payment gateway with secure webhook validation. |
+| **Emails** | `Resend` | Automated HTML email dispatching. |
+| **Security** | `Upstash Redis` | Sliding-window rate limiting to prevent DDoS attacks. |
+| **Localization**| `next-intl` | Core routing foundation for future Marathi & Hindi translations. |
 
 ---
 
-## 🚢 Deployment (Production)
+## 💻 How to Run Locally
 
-To deploy this application to a production environment (like Vercel, Railway, or AWS):
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/itshreesaiservices-web/ShreeSaiCRM.git
+   cd ShreeSaiCRM
+   ```
 
-1. **Change the Database:** Swap the SQLite `DATABASE_URL` in `.env` for a production PostgreSQL connection string (e.g., Neon, Supabase, AWS RDS). 
-2. **Update Prisma Schema:** In `prisma/schema.prisma`, change `provider = "sqlite"` to `provider = "postgresql"`.
-3. **Run Migrations:** Run `npx prisma migrate deploy` in your production build step.
-4. **Set Secrets:** Ensure `JWT_SECRET` is set to a highly secure, random string in your host's environment variables.
+2. **Install Dependencies**
+   ```bash
+   npm install
+   ```
 
-```bash
-npm run build
-npm start
-```
+3. **Configure Environment Variables**
+   Create a `.env` file in the root directory and add your keys:
+   ```env
+   DATABASE_URL="postgresql://postgres.[YOUR-PROJECT-REF]:[YOUR-PASSWORD]@aws-0-ap-south-1.pooler.supabase.com:6543/postgres"
+   SUPABASE_SERVICE_ROLE_KEY="eyJhbG..."
+   
+   RAZORPAY_KEY_ID="rzp_test_..."
+   RAZORPAY_KEY_SECRET="your_secret_..."
+   RAZORPAY_WEBHOOK_SECRET="your_custom_secret"
+   
+   UPSTASH_REDIS_REST_URL="https://..."
+   UPSTASH_REDIS_REST_TOKEN="AZ..."
+   
+   RESEND_API_KEY="re_..."
+   ```
 
-## 📝 License
-This project is proprietary and confidential. Unauthorized copying, distribution, or use is strictly prohibited.
+4. **Sync the Database**
+   ```bash
+   npx prisma generate
+   npx prisma db push
+   ```
+
+5. **Start the Development Server**
+   ```bash
+   npm run dev
+   ```
+   *Visit `http://localhost:3000` to view the application.*
+
+---
+
+## 🤝 Collaboration & Partnership
+
+This enterprise platform was engineered and delivered in collaboration with **CodeMarket**.
+
+> **CodeMarket** specializes in building high-performance, scalable IT solutions and premium web architectures for modern businesses. 
+> 
+> 🌐 Visit us at: [knowflow.co.in](https://knowflow.co.in)
+
+<div align="center">
+  <br />
+  <i>Built with ❤️ for Shree Sai Services.</i>
+</div>
