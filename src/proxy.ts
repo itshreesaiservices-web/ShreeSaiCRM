@@ -39,7 +39,7 @@ export default async function proxy(request: NextRequest) {
   const isAuthPath = pathname === '/login' || pathname === '/signup';
   
   if (ratelimit && isAuthPath && request.method === 'POST') {
-    const ip = request.ip ?? '127.0.0.1';
+    const ip = request.headers.get('x-forwarded-for') ?? '127.0.0.1';
     const { success } = await ratelimit.limit(ip);
     
     if (!success) {
@@ -54,7 +54,6 @@ export default async function proxy(request: NextRequest) {
   const session = await getSession(request);
 
   // 2. Prevent authenticated users from accessing login/signup
-  const isAuthPath = pathname === '/login' || pathname === '/signup';
   if (session && isAuthPath) {
     const role = session.role as string;
     if (role === 'CLIENT') {
