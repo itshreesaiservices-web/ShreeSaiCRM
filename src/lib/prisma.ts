@@ -2,7 +2,7 @@ import { PrismaClient } from '../generated/prisma/client';
 
 const prismaClientSingleton = () => {
   if (!process.env.DATABASE_URL) {
-    console.error("🚨 CRITICAL ERROR 🚨: DATABASE_URL is missing! Your .env file is NOT inside the ShreeSaiCRM folder!");
+    console.error("🚨 CRITICAL ERROR 🚨: DATABASE_URL is missing! Your .env file is NOT inside the ClientBridgeCRM folder!");
   }
 
   return new PrismaClient({

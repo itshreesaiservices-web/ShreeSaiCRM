@@ -17,14 +17,14 @@ const testimonials = [
     id: 1,
     name: "Ramesh Sharma",
     role: "IT Professional",
-    content: "Shree Sai Services transformed my investment portfolio. Their strategic approach to mutual funds has yielded returns far exceeding my expectations. Highly professional team.",
+    content: "ClientBridge transformed my investment portfolio. Their strategic approach to mutual funds has yielded returns far exceeding my expectations. Highly professional team.",
     initials: "RS"
   },
   {
     id: 2,
     name: "Anita Desai",
     role: "Small Business Owner",
-    content: "Filing taxes used to be a nightmare for my business until I found Shree Sai Services. Their tax planning advice saved us a significant amount legally and cleanly.",
+    content: "Filing taxes used to be a nightmare for my business until I found ClientBridge. Their tax planning advice saved us a significant amount legally and cleanly.",
     initials: "AD"
   },
   {

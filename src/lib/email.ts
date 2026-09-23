@@ -18,7 +18,7 @@ export async function sendEmail({ to, subject, html }: EmailPayload) {
 
   try {
     const { data, error } = await resend.emails.send({
-      from: 'Shree Sai Services <noreply@shreesaiservices.com>',
+      from: 'ClientBridge <noreply@shreesaiservices.com>',
       to,
       subject,
       html,

@@ -29,14 +29,14 @@ export function WhyChooseUs() {
               
               <div className="absolute bottom-6 left-6 right-6 bg-background/90 backdrop-blur border border-border p-6 rounded-2xl shadow-lg">
                 <p className="text-xl font-bold text-foreground mb-2">"Our priority is your financial peace of mind."</p>
-                <p className="text-sm text-muted-foreground">— Founder, Shree Sai Services</p>
+                <p className="text-sm text-muted-foreground">— Founder, ClientBridge</p>
               </div>
             </div>
           </AnimatedSection>
           
           <AnimatedSection direction="right">
             <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl mb-6">
-              Why Partner With Shree Sai Services?
+              Why Partner With ClientBridge?
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
               We go beyond traditional advisory. By combining deep market expertise with personalized strategies, we ensure your financial portfolio is robust, tax-efficient, and aligned with your life goals.

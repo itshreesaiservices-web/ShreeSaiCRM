@@ -1,13 +1,13 @@
 ---
-title: "Shree Sai Services - Enterprise Architecture & Technical Specification"
+title: "ClientBridge - Enterprise Architecture & Technical Specification"
 author: "Antigravity Development Team"
 date: "July 2026"
 version: "2.0.0"
 ---
 
-# Shree Sai Services - Enterprise Architecture & Technical Specification
+# ClientBridge - Enterprise Architecture & Technical Specification
 
-> **Confidentiality Notice**: This document contains proprietary architectural designs, business logic, and security protocols for the Shree Sai Services platform. 
+> **Confidentiality Notice**: This document contains proprietary architectural designs, business logic, and security protocols for the ClientBridge platform. 
 
 ---
 
@@ -24,7 +24,7 @@ version: "2.0.0"
 
 ## 1. Executive Summary & Business Vision
 
-**Shree Sai Services** is a next-generation financial advisory and tax consultancy platform. Designed explicitly for the Indian financial sector—with specialized localization for Maharashtra's demographic—the platform bridges the gap between public lead generation and private wealth management.
+**ClientBridge** is a next-generation financial advisory and tax consultancy platform. Designed explicitly for the Indian financial sector—with specialized localization for Maharashtra's demographic—the platform bridges the gap between public lead generation and private wealth management.
 
 ### Dual-Ecosystem Design
 1. **The Public Marketing Engine**: A highly optimized, SEO-friendly Next.js landing site designed to capture leads for Income Tax Planning, Mutual Fund Advisory, and Holistic Financial Planning. 

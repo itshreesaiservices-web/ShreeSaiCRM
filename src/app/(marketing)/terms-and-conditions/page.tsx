@@ -3,7 +3,7 @@ import { AnimatedSection } from "@/components/shared/AnimatedSection";
 
 export const metadata = {
   title: "Terms and Conditions",
-  description: "Terms and conditions for using Shree Sai Services.",
+  description: "Terms and conditions for using ClientBridge.",
 };
 
 export default function TermsPage() {
@@ -22,12 +22,12 @@ export default function TermsPage() {
           <AnimatedSection direction="up" className="prose prose-lg dark:prose-invert max-w-none text-muted-foreground">
             <h2>1. Acceptance of Terms</h2>
             <p>
-              By accessing and using the Shree Sai Services website and advisory services, you agree to comply with and be bound by these Terms and Conditions.
+              By accessing and using the ClientBridge website and advisory services, you agree to comply with and be bound by these Terms and Conditions.
             </p>
             
             <h2>2. No Guarantee of Returns</h2>
             <p>
-              Investments in mutual funds and equity markets are subject to market risks. Shree Sai Services does not guarantee any assured returns. Past performance of mutual funds is not an indicator of future results. Clients must read all scheme-related documents carefully before investing.
+              Investments in mutual funds and equity markets are subject to market risks. ClientBridge does not guarantee any assured returns. Past performance of mutual funds is not an indicator of future results. Clients must read all scheme-related documents carefully before investing.
             </p>
             
             <h2>3. Advisory Nature of Services</h2>
@@ -37,7 +37,7 @@ export default function TermsPage() {
             
             <h2>4. Limitation of Liability</h2>
             <p>
-              Shree Sai Services shall not be held liable for any direct, indirect, or consequential loss arising from the use of our website or reliance on any information provided herein.
+              ClientBridge shall not be held liable for any direct, indirect, or consequential loss arising from the use of our website or reliance on any information provided herein.
             </p>
             
             <h2>5. Governing Law</h2>

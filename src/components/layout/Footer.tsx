@@ -28,7 +28,7 @@ export function Footer() {
                 <Landmark className="text-primary-foreground w-5 h-5" />
               </div>
               <span className="font-bold text-xl tracking-tight text-foreground">
-                Shree Sai Services
+                ClientBridge
               </span>
             </Link>
             <p className="text-muted-foreground text-sm leading-relaxed">
@@ -113,7 +113,7 @@ export function Footer() {
 
         <div className="pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
           <div className="flex flex-col md:flex-row items-center gap-2">
-            <p>© {new Date().getFullYear()} Shree Sai Services. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} ClientBridge. All rights reserved.</p>
             <span className="hidden md:inline text-border">•</span>
             <p>
               Built by <a href="https://knowflow.co.in" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors font-medium">CodeMarket</a>

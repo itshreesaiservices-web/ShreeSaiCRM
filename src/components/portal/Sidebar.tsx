@@ -37,7 +37,7 @@ export function PortalSidebar() {
               <span className="font-bold text-primary-foreground">S</span>
            </div>
            <div>
-             <span className="font-bold text-lg tracking-tight text-foreground block leading-tight">Shree Sai</span>
+             <span className="font-bold text-lg tracking-tight text-foreground block leading-tight">ClientBridge</span>
              <span className="text-xs text-muted-foreground uppercase tracking-wider font-semibold">Client Portal</span>
            </div>
         </Link>

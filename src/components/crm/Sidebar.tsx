@@ -42,7 +42,7 @@ export function Sidebar() {
            <div className="w-8 h-8 bg-primary rounded-md flex items-center justify-center">
               <span className="font-bold text-primary-foreground">S</span>
            </div>
-           <span className="font-bold text-xl tracking-tight text-foreground">Shree Sai</span>
+           <span className="font-bold text-xl tracking-tight text-foreground">ClientBridge</span>
         </Link>
       </div>
 

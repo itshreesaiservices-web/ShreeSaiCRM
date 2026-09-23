@@ -1,6 +1,6 @@
 'use server';
 
-import { prisma } from '@/lib/db';
+import { prisma } from '@/lib/prisma';
 import { cookies } from 'next/headers';
 import * as jose from 'jose';
 import Razorpay from 'razorpay';

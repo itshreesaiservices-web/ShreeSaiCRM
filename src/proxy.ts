@@ -64,7 +64,12 @@ export default async function proxy(request: NextRequest) {
   }
 
   // 3. Allow public paths to bypass middleware
-  if (publicPaths.some(path => pathname === path || pathname.startsWith('/_next') || pathname.startsWith('/api/public'))) {
+  if (
+    publicPaths.some(path => pathname === path) || 
+    pathname.startsWith('/_next') || 
+    pathname.startsWith('/api/public') ||
+    pathname.match(/\.(webmanifest|ico|png|jpg|jpeg|svg|xml|txt)$/)
+  ) {
     return NextResponse.next();
   }
 

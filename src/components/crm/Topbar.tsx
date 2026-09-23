@@ -58,7 +58,8 @@ export function Topbar() {
             <DropdownMenuSeparator />
             <DropdownMenuItem>Profile Settings</DropdownMenuItem>
             <form action={logoutUser} className="w-full">
-              <DropdownMenuItem render={<button type="submit" className="w-full text-left text-destructive cursor-pointer" />}>
+              {/* @ts-ignore - nativeButton is a Base UI prop required when rendering a <button> */}
+              <DropdownMenuItem nativeButton render={<button type="submit" className="w-full text-left text-destructive cursor-pointer" />}>
                 Log out
               </DropdownMenuItem>
             </form>

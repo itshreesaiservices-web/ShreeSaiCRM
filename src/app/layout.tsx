@@ -15,15 +15,15 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | Shree Sai Services",
-    default: "Shree Sai Services | Financial Advisory & CRM",
+    template: "%s | ClientBridge",
+    default: "ClientBridge | Financial Advisory & CRM",
   },
   description: "Premium Financial Advisory, Mutual Funds, and Income Tax Consulting.",
   openGraph: {
-    title: "Shree Sai Services",
+    title: "ClientBridge",
     description: "Premium Financial Advisory, Mutual Funds, and Income Tax Consulting.",
     url: "https://shreesaiservices.com",
-    siteName: "Shree Sai Services",
+    siteName: "ClientBridge",
     locale: "en_IN",
     type: "website",
   },
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
-    title: "ShreeSai",
+    title: "ClientBridge",
   },
 };
 

@@ -34,7 +34,7 @@ export default function LoginPage() {
            <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mx-auto mb-4">
               <span className="font-bold text-2xl text-primary-foreground">S</span>
            </div>
-           <h1 className="text-3xl font-bold tracking-tight">Shree Sai Services</h1>
+           <h1 className="text-3xl font-bold tracking-tight">ClientBridge</h1>
            <p className="text-muted-foreground">Secure CRM & Client Portal Login</p>
         </div>
 

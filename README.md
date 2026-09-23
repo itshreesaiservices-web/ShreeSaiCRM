@@ -1,7 +1,7 @@
 <div align="center">
-  <img src="public/icon-192x192.png" alt="Shree Sai Services Logo" width="120" />
+  <img src="public/icon-192x192.png" alt="ClientBridge Logo" width="120" />
 
-  # 🌟 Shree Sai Services | Enterprise CRM & Client Portal
+  # 🌟 ClientBridge | Enterprise CRM & Client Portal
   
   **A Next-Generation, Zero-Cost Financial Advisory Platform built for Scale.**
   
@@ -15,7 +15,7 @@
 
 ## 🚀 Overview
 
-**Shree Sai Services** is not just a marketing website—it is a full-scale Enterprise CRM and Client Portal tailored specifically for Indian financial advisors. It automates tax return tracking, handles mutual fund portfolios, secures client document uploads, and processes payments seamlessly.
+**ClientBridge** is not just a marketing website—it is a full-scale Enterprise CRM and Client Portal tailored specifically for Indian financial advisors. It automates tax return tracking, handles mutual fund portfolios, secures client document uploads, and processes payments seamlessly.
 
 Engineered with a **Zero-Cost Edge Architecture**, the platform utilizes generous free-tier services (Supabase, Resend, Upstash) to guarantee **₹0/month server maintenance costs** while remaining capable of handling thousands of active clients.
 
@@ -57,8 +57,8 @@ Engineered with a **Zero-Cost Edge Architecture**, the platform utilizes generou
 
 1. **Clone the Repository**
    ```bash
-   git clone https://github.com/itshreesaiservices-web/ShreeSaiCRM.git
-   cd ShreeSaiCRM
+   git clone https://github.com/itshreesaiservices-web/ClientBridgeCRM.git
+   cd ClientBridgeCRM
    ```
 
 2. **Install Dependencies**
@@ -106,5 +106,5 @@ This enterprise platform was engineered and delivered in collaboration with **Co
 
 <div align="center">
   <br />
-  <i>Built with ❤️ for Shree Sai Services.</i>
+  <i>Built with ❤️ for ClientBridge.</i>
 </div>

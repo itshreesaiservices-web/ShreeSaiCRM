@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { createPaymentOrder } from '@/app/actions/payments';
 import { Button } from '@/components/ui/button';
 import { Loader2 } from 'lucide-react';
-import { useToast } from '@/components/ui/use-toast';
+
 
 interface CheckoutButtonProps {
   amount: number; // Amount in INR
@@ -20,7 +20,7 @@ export function CheckoutButton({
   onSuccess
 }: CheckoutButtonProps) {
   const [loading, setLoading] = useState(false);
-  const { toast } = useToast();
+
 
   const loadRazorpayScript = () => {
     return new Promise((resolve) => {
@@ -42,11 +42,7 @@ export function CheckoutButton({
     // 1. Load the script
     const res = await loadRazorpayScript();
     if (!res) {
-      toast({
-        title: "Connection Error",
-        description: "Failed to load Razorpay SDK. Please check your internet connection.",
-        variant: "destructive"
-      });
+      alert("Connection Error: Failed to load Razorpay SDK. Please check your internet connection.");
       setLoading(false);
       return;
     }
@@ -55,11 +51,7 @@ export function CheckoutButton({
     const response = await createPaymentOrder(amount, taxReturnId);
     
     if (!response.success || !response.orderId) {
-      toast({
-        title: "Payment Error",
-        description: response.error || "Failed to initiate payment",
-        variant: "destructive"
-      });
+      alert(`Payment Error: ${response.error || "Failed to initiate payment"}`);
       setLoading(false);
       return;
     }
@@ -69,15 +61,12 @@ export function CheckoutButton({
       key: response.keyId,
       amount: response.amount,
       currency: response.currency,
-      name: "Shree Sai Services",
+      name: "ClientBridge",
       description: "Tax Services Payment",
       order_id: response.orderId,
       handler: function (response: any) {
         // Handled securely by the webhook, but we can optimistically show success
-        toast({
-          title: "Payment Successful!",
-          description: `Payment ID: ${response.razorpay_payment_id}`,
-        });
+        alert(`Payment Successful! Payment ID: ${response.razorpay_payment_id}`);
         if (onSuccess) onSuccess();
       },
       prefill: {
@@ -93,11 +82,7 @@ export function CheckoutButton({
 
     const paymentObject = new (window as any).Razorpay(options);
     paymentObject.on('payment.failed', function (response: any) {
-      toast({
-        title: "Payment Failed",
-        description: response.error.description,
-        variant: "destructive"
-      });
+      alert(`Payment Failed: ${response.error.description}`);
     });
     
     paymentObject.open();

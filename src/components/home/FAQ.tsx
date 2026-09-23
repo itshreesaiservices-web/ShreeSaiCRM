@@ -28,7 +28,7 @@ const faqs = [
     answer: "We believe in complete transparency. Our fees depend on the complexity of the services required. For mutual funds, we offer both direct (fee-only) and regular (commission-based) models. This will be clearly discussed during your initial consultation.",
   },
   {
-    question: "Is my financial data secure with Shree Sai Services?",
+    question: "Is my financial data secure with ClientBridge?",
     answer: "Absolutely. We employ bank-grade security and encryption to ensure your financial data is strictly confidential and fully protected against unauthorized access.",
   },
 ];

@@ -5,14 +5,14 @@ import Image from "next/image";
 
 export const metadata = {
   title: "About Us",
-  description: "Learn more about Shree Sai Services, your trusted partner in wealth management.",
+  description: "Learn more about ClientBridge, your trusted partner in wealth management.",
 };
 
 export default function AboutPage() {
   return (
     <>
       <PageHeader 
-        title="About Shree Sai Services" 
+        title="About ClientBridge" 
         description="Over 15 years of excellence in financial advisory and wealth management."
         breadcrumbs={[
           { label: "Home", href: "/" },
@@ -25,7 +25,7 @@ export default function AboutPage() {
           <AnimatedSection direction="up" className="prose prose-lg dark:prose-invert max-w-none text-muted-foreground mb-16">
             <h2 className="text-3xl font-bold text-foreground mb-6">Our Mission</h2>
             <p>
-              At Shree Sai Services, our mission is to empower individuals and corporations to achieve absolute financial security through expert, unbiased, and customized advisory solutions. We believe that wealth creation is a journey, not a destination, and we are committed to walking that path with our clients.
+              At ClientBridge, our mission is to empower individuals and corporations to achieve absolute financial security through expert, unbiased, and customized advisory solutions. We believe that wealth creation is a journey, not a destination, and we are committed to walking that path with our clients.
             </p>
             <p>
               Founded with the vision to demystify complex financial structures, we have grown into a highly trusted advisory firm, managing significant portfolios and offering seamless tax solutions.

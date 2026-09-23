@@ -23,7 +23,7 @@ export default function PrivacyPolicyPage() {
           <AnimatedSection direction="up" className="prose prose-lg dark:prose-invert max-w-none text-muted-foreground">
             <h2>1. Introduction</h2>
             <p>
-              Shree Sai Services ("we," "us," or "our") respects your privacy and is committed to protecting your personal and financial data. This Privacy Policy outlines how we collect, use, and safeguard your information when you visit our website or use our services.
+              ClientBridge ("we," "us," or "our") respects your privacy and is committed to protecting your personal and financial data. This Privacy Policy outlines how we collect, use, and safeguard your information when you visit our website or use our services.
             </p>
             
             <h2>2. Information We Collect</h2>

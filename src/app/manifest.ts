@@ -2,8 +2,8 @@ import { MetadataRoute } from 'next'
  
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'Shree Sai Services',
-    short_name: 'Shree Sai',
+    name: 'ClientBridge',
+    short_name: 'ClientBridge',
     description: 'Premium Financial Advisory, Mutual Funds, and Income Tax Consulting.',
     start_url: '/',
     display: 'standalone',

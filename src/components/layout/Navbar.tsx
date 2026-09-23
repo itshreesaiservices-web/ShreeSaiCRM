@@ -62,7 +62,7 @@ export function Navbar() {
               <Landmark className="text-primary-foreground w-5 h-5" />
             </div>
             <span className="inline-block font-bold text-xl tracking-tight text-foreground">
-              Shree Sai Services
+              ClientBridge
             </span>
           </Link>
         </div>
@@ -143,7 +143,7 @@ export function Navbar() {
                   <div className="w-8 h-8 bg-primary rounded-md flex items-center justify-center">
                     <Landmark className="text-primary-foreground w-5 h-5" />
                   </div>
-                  <span className="font-bold text-lg">Shree Sai Services</span>
+                  <span className="font-bold text-lg">ClientBridge</span>
                 </Link>
                 <nav className="flex flex-col gap-4">
                   <Link href="/" className="text-lg font-medium hover:text-primary transition-colors" onClick={() => setIsOpen(false)}>Home</Link>

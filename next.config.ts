@@ -1,3 +1,4 @@
+import "./src/lib/env";
 import type { NextConfig } from "next";
 import createNextIntlPlugin from 'next-intl/plugin';
 import withPWAInit from "@ducanh2912/next-pwa";
