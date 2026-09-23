@@ -87,10 +87,11 @@ export default async function proxy(request: NextRequest) {
     return NextResponse.redirect(new URL('/dashboard', request.url));
   }
 
-  // 5. Apply Next-Intl Middleware for localized routing
-  const response = intlMiddleware(request);
+  // 5. Bypass Next-Intl Middleware temporarily to prevent 404s
+  // const response = intlMiddleware(request);
+  const response = NextResponse.next();
   
-  // Add security headers to the localized response
+  // Add security headers to the response
   response.headers.set('X-Frame-Options', 'DENY');
   response.headers.set('X-Content-Type-Options', 'nosniff');
   response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
